@@ -1,45 +1,6 @@
 /*
- * Simple message logger to standardize diagnostic output, in the flavor
- * of HTML names for the messages.
- * 
- * Usage:
- * // I like to use the worst identifier name ever for my loggers.
- * // Assuming you want only 1 logger in your file, just create it.
- * var l = require("llogger").create();
- * // NOTE: Assumes all messages are text strings.
- * // Standard logging methods with a bit of flavor added.
- * l.log("normal log message");
- * l.warn("normal warn message");
- * l.error("normal error message");
- * // And because I spend most of my time in HTML, I thought why not have
- * // tag based messages (I know, lame idea, but I like it):
- * l.h1("Really important message, section header.");
- * l.h2("Important message, sub-section header.");
- * l.h3("Somewhat important message, sub-sub-section header.");
- * l.h4("Sort of important, sub-sub-sub-section header.");
- * l.h5("Not as important, sub-sub-sub-sub-section header.");
- * l.h6("Probably not at all important, sub-sub-sub-sub-sub-section header.");
- * l.p("Equivalent to a normal log message.");
- * l.li("Indented one level in from the current indent.");
- * // The following will print an 80 character horizontal rul.
- * l.hr();
- * // The following will increase the indentation level by 1.
- * l.indent();
- * l.p("This, and the other 'html' tag messages are indented.");
- * l.log("The log, warn, and error messages are immune to indentation.");
- * // The following will decrease the indentation level by 1.
- * l.dedent();
- * l.p("No longer indented.");
- * // Turn on filename and linenumber display on this logger instance.
- * l.displayCallerInfo(true);
- * // Turn off filename and linenumber display on this logger instance.
- * l.displayCallerInfo(false);
- * // Turn on filename and linenumber display globally across all loggers,
- * // overriding the logger instance setting.
- * require("llogger").globalDisplayCallerInfo(true);
- * // Turn off filename and linenumber display globally across all loggers,
- * // deferring to the logger instance setting.
- * require("llogger").globalDisplayCallerInfo(false);
+ * The lame logger. Standardize the level of message using html tag names
+ * as logging methods.
  */
 
 var path = require("path");
