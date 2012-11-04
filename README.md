@@ -12,6 +12,14 @@ What I'm not intending to solve with this logger:
 * Not out to recreate console.log or inspect. They're great. If you need them, use them.
 * Not interested in making a file friendly logger (although the log messages shouldn't look TOO bad if stored in a file).
 
+## Stability
+
+Sticking with the Node.js stability index, this API is:
+
+```
+Stability: 2 - Unstable
+```
+
 ## Install
 
 `npm install llogger`
