@@ -24,5 +24,10 @@
     "scripts": {
         "test": "./node_modules/nodeunit/bin/nodeunit test"
     },
-    "license": "MIT"
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://github.com/jeremyosborne/llogger/blob/master/LICENSE-MIT.txt"
+        }
+    ]
 }

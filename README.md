@@ -66,3 +66,12 @@ require("llogger").globalDisplayCallerInfo(true);
 require("llogger").globalDisplayCallerInfo(false);
 ```
 
+## Credits
+
+Rarely is software created in a vacuum, and that includes this lame logger.
+In addition to the modules referenced in the package.json file, I give credit
+to:
+
+* John Resig (http://ejohn.org/ 21 May 2008) for his porting of title caps code by John Gruber (http://daringfireball.net/ 10 May 2008).
+   * License: http://www.opensource.org/licenses/mit-license.php
+* Igor Urminček (nlogger at https://github.com/igo/nlogger) for how to get caller module name and line number.
