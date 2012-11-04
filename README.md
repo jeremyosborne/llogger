@@ -5,10 +5,12 @@ with loggers and used html tag names as names for the logger methods, attempting
 to keep the semantics of the names intact.
 
 The itches that this logger scratches for me:
+
 * Most of my output is strings, not objects.
 * Simple solution to log synchronous processes where I wanted sections of the output to scream out at me.
 
 What I'm not intending to solve with this logger:
+
 * Not out to recreate console.log or inspect. They're great. If you need them, use them.
 * Not interested in making a file friendly logger (although the log messages shouldn't look TOO bad if stored in a file).
 
