@@ -21,6 +21,8 @@
     "devDependencies": {
         "nodeunit": "0.7.x"
     },
-    "scripts": {},
+    "scripts": {
+        "test": "./node_modules/nodeunit/bin/nodeunit test"
+    },
     "license": "MIT"
 }

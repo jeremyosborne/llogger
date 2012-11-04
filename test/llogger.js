@@ -1,6 +1,6 @@
-var loggerModule = require('../llogger'); 
+var loggerModule = require('../llogger.js'); 
 
-exports["testing getting file info"] = function(test) {
+exports["file info"] = function(test) {
     var l = loggerModule.create();
 
     // NOTE: Testing the following function is a pain, because we
@@ -12,7 +12,7 @@ exports["testing getting file info"] = function(test) {
 
     // Turn on file info.
     l.displayCallerInfo(true);
-    test.strictEqual((function() { return l._callerInfo()})(), "(logger.js:15) ", 
+    test.strictEqual((function() { return l._callerInfo()})(), "(llogger.js:15) ", 
         "Positive file info test. (If failing, make sure this sensitive test hasn't been moved)." );
     // Turn off file info.
     l.displayCallerInfo(false);
@@ -22,7 +22,7 @@ exports["testing getting file info"] = function(test) {
 
     // Sensitive, remember to turn this off before leaving this function.
     loggerModule.globalDisplayCallerInfo(true);
-    test.strictEqual((function() { return l._callerInfo()})(), "(logger.js:25) ", 
+    test.strictEqual((function() { return l._callerInfo()})(), "(llogger.js:25) ", 
         "Positive global file info test. (If failing, make sure this sensitive test hasn't been moved)." );
     // Turn the global off.
     loggerModule.globalDisplayCallerInfo(false);    
@@ -33,7 +33,7 @@ exports["testing getting file info"] = function(test) {
 };
 
 
-exports["logger indentation logic tests"] = function(test) {
+exports["indentation"] = function(test) {
     // Create a local instance.
     var l = loggerModule.create();
     
@@ -54,7 +54,7 @@ exports["logger indentation logic tests"] = function(test) {
     test.done();
 };
 
-exports["logger blackbox sanity tests"] = function (test) {
+exports["blackbox sanity tests"] = function (test) {
     
     var l = loggerModule.create();
 
@@ -78,7 +78,7 @@ exports["logger blackbox sanity tests"] = function (test) {
     test.done();
 };
 
-exports["logger blackbox indentation tests"] = function (test) {
+exports["blackbox indentation tests"] = function (test) {
 
     var l = loggerModule.create();
 
@@ -107,7 +107,7 @@ exports["logger blackbox indentation tests"] = function (test) {
     test.done();
 };
 
-exports["logger blackbox fileinfo tests"] = function (test) {
+exports["blackbox fileinfo tests"] = function (test) {
 
     var l = loggerModule.create();
 
