@@ -1,0 +1,11 @@
+nbproject
+build
+.DS_Store
+tmp
+.project
+.pydevproject
+.settings
+*.pyc
+sqlite.db
+*.db3
+node_modules

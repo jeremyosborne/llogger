@@ -1,0 +1,26 @@
+{
+    "name": "llogger",
+    "description": "lame logger",
+    "version": "0.2.0",
+    "author": {
+        "name": "Jeremy Osborne",
+        "email": "jeremywosborne@gmail.com", 
+        "url": "http://jeremyosborne.com/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/jeremyosborne/llogger.git"
+    },
+    "main": "llogger.js",
+    "engines": {
+        "node": "node >= 0.4.x"
+    },
+    "dependencies": {
+        "colors": "0.6.x"
+    },
+    "devDependencies": {
+        "nodeunit": "0.7.x"
+    },
+    "scripts": {},
+    "license": "MIT"
+}
