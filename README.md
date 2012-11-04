@@ -1,7 +1,13 @@
 # llogger (the lame logger)
 
-This is yet another logger for nodejs. I departed from the other loggers and
-used html tag names as representations for the logger methods.
+This is yet another logger for nodejs. I departed from my previous experience
+with loggers and used html tag names as names for the logger methods, attempting
+to keep the semantics of the names intact.
+
+The itches that this logger scratches for me:
+* Most of my output is strings, not objects. (Not out to recreate console.log.)
+* Simple solution to log synchronous processes where I wanted sections of the output to scream out at me.
+* Not interested in storing the output of the logs to files.
 
 ## Install
 
@@ -10,11 +16,11 @@ used html tag names as representations for the logger methods.
 ## Usage
 
 ```javascript
-// I like to use the worst identifier name ever for my loggers.
 // Assuming you want only 1 logger in your file, just create it
 // (here using the world's worst variable name).
 var l = require("llogger").create();
-// NOTE: Assumes all messages are text strings.
+
+// NOTE: llogger treats all messages are text strings.
 // Standard logging methods with a bit of flavor added.
 l.log("normal log message");
 l.warn("normal warn message");
