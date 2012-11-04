@@ -5,13 +5,20 @@ with loggers and used html tag names as names for the logger methods, attempting
 to keep the semantics of the names intact.
 
 The itches that this logger scratches for me:
-* Most of my output is strings, not objects. (Not out to recreate console.log.)
+* Most of my output is strings, not objects.
 * Simple solution to log synchronous processes where I wanted sections of the output to scream out at me.
-* Not interested in storing the output of the logs to files.
+
+What I'm not intending to solve with this logger:
+* Not out to recreate console.log or inspect. They're great. If you need them, use them.
+* Not interested in making a file friendly logger (although the log messages shouldn't look TOO bad if stored in a file).
 
 ## Install
 
 `npm install llogger`
+
+## Test (includes visual only tests that demonstrate each method)
+
+Once installed (and you're in the logger/ directory): `npm test`
 
 ## Usage
 
