@@ -2,7 +2,7 @@
 
 This is yet another logger for nodejs. I departed from my previous experience
 with loggers and used html tag names as names for the logger methods, attempting
-to keep the semantics of the names intact.
+to keep the semantics of the names intact, but with a markdown like flavor.
 
 The itches that this logger scratches for me:
 
@@ -11,8 +11,9 @@ The itches that this logger scratches for me:
 
 What I'm not intending to solve with this logger:
 
-* Not out to recreate console.log or inspect. They're great. If you need them, use them.
-* Not interested in making a file friendly logger (although the log messages shouldn't look TOO bad if stored in a file).
+* Not out to recreate console.log or inspect.
+
+
 
 ## Stability
 
@@ -22,13 +23,19 @@ Sticking with the Node.js stability index, this API is:
 Stability: 2 - Unstable
 ```
 
+
+
 ## Install
 
 `npm install llogger`
 
+
+
 ## Test (includes visual only tests that demonstrate each method)
 
 Once installed (and you're in the logger/ directory): `npm test`
+
+
 
 ## Usage
 
@@ -50,7 +57,7 @@ l.h4("Sort of important, sub-sub-sub-section header.");
 l.h5("Not as important, sub-sub-sub-sub-section header.");
 l.h6("Probably not at all important, sub-sub-sub-sub-sub-section header.");
 l.p("Equivalent to a normal log message.");
-l.li("Indented one level in from the current indentation.");
+l.li("List item.");
 // The following will print an 80 character horizontal rule.
 l.hr();
 
@@ -76,12 +83,12 @@ require("llogger").globalDisplayCallerInfo(true);
 require("llogger").globalDisplayCallerInfo(false);
 ```
 
+
+
 ## Credits
 
 Rarely is software created in a vacuum, and that includes this lame logger.
 In addition to the modules referenced in the package.json file, I give credit
 to:
 
-* John Resig (http://ejohn.org/ 21 May 2008) for his porting of title caps code by John Gruber (http://daringfireball.net/ 10 May 2008).
-   * License: http://www.opensource.org/licenses/mit-license.php
 * Igor Urminček (nlogger at https://github.com/igo/nlogger) for how to get caller module name and line number.

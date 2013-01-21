@@ -66,7 +66,7 @@ exports["blackbox sanity tests"] = function (test) {
     l.h4("This is an h4 (sub-sub-sub-heading) log message.");
     l.h5("This is an h5 (sub-sub-sub-sub-heading) log message.");
     l.h6("This is an h6 (sub-sub-sub-sub-sub-heading) log message.");
-    l.li("This is an li (indented text) log message.");
+    l.li("This is an li log message.");
     l.hr();
     l.p("This is a p (paragraph a.k.a normal content) log message.");
     l.log("This is a normal log message.");

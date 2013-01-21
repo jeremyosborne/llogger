@@ -9,60 +9,6 @@ var colors = require("colors");
 
 
 
-/*
- * Title Caps
- * 
- * Ported to JavaScript By John Resig - http://ejohn.org/ - 21 May 2008
- * Original by John Gruber - http://daringfireball.net/ - 10 May 2008
- * License: http://www.opensource.org/licenses/mit-license.php
- * 
- * (with very, very minor changes by me to make it fit more with my logger
- *  code.)
- */
-var _toTitleCase = function(title) {
-    var parts = [], 
-        split = /[:.;?!] |(?: |^)["Ò]/g, 
-        index = 0;
-
-    var small = "(a|an|and|as|at|but|by|en|for|if|in|of|on|or|the|to|v[.]?|via|vs[.]?)";
-    var punct = "([!\"#$%&'()*+,./:;<=>?@[\\\\\\]^_`{|}~-]*)";
-
-    var lower = function(word) {
-        return word.toLowerCase();
-    };
-    
-    var upper = function(word) {
-      return word.substr(0,1).toUpperCase() + word.substr(1);
-    };
-    
-    while (true) {
-        var m = split.exec(title);
-
-        parts.push( title.substring(index, m ? m.index : title.length)
-            .replace(/\b([A-Za-z][a-z.'Õ]*)\b/g, function(all){
-                return /[A-Za-z]\.[A-Za-z]/.test(all) ? all : upper(all);
-            })
-            .replace(RegExp("\\b" + small + "\\b", "ig"), lower)
-            .replace(RegExp("^" + punct + small + "\\b", "ig"), function(all, punct, word){
-                return punct + upper(word);
-            })
-            .replace(RegExp("\\b" + small + punct + "$", "ig"), upper));
-        
-        index = split.lastIndex;
-        
-        if ( m ) parts.push( m[0] );
-        else break;
-    }
-    
-    return parts.join("").replace(/ V(s?)\. /ig, " v$1. ")
-        .replace(/(['Õ])S\b/ig, "$1s")
-        .replace(/\b(AT&T|Q&A)\b/ig, function(all){
-            return all.toUpperCase();
-        });
-};
-
-
-
 /**
  * Builds an 80 character width underline.
  * @return {String} A string acting as a horizontal rule.
@@ -71,8 +17,8 @@ var _toTitleCase = function(title) {
 var _hr = function() {
     var hr = [];
     var i;
-    for (i = 0; i < 80; i++) {
-        hr[i] = "="
+    for (i = 0; i < 79; i++) {
+        hr[i] = "-"
     }
     return hr.join("");
 };
@@ -82,14 +28,15 @@ var _hr = function() {
 /**
  * Builds an underline the same size as the message that is passed in.
  * @param message {String} Assumes message is a string.
+ * @param c {String} What is the underline sequence to use. Assumes 1 char.
  * @return {String} Underline the length of the message passed in.
  * @private
  */
-var _underline = function(message) {
+var _underline = function(message, c) {
     var underline = [];
     var i;
     for (i = 0; i < message.length; i++) {
-        underline[i] = "="
+        underline[i] = c;
     }
     return underline.join("");
 };
@@ -184,38 +131,36 @@ var _loggerPrototype = {
      */
     "h1": function(message) {
         console.log("\n" + this._callerInfo() + this._getIndent() + message.toUpperCase().magenta.bold.inverse);
-        console.log(this._getIndent() + _hr().magenta.bold.inverse);
+        console.log(this._callerInfo() + this._getIndent() + _underline(message, "=").magenta.bold.inverse);
     },
     /**
      * Print message as a stylized diagnostic sub-section header.
      * @param message {String} Assumes message is a string.
      */
     "h2": function(message) {
-        console.log("\n" + this._callerInfo() + this._getIndent() + message.toUpperCase().magenta.bold.inverse);
-        console.log(this._getIndent() + _underline(message).magenta.bold.inverse);
+        console.log("\n" + this._callerInfo() + this._getIndent() + message.magenta.bold.inverse);
+        console.log(this._callerInfo() + this._getIndent() + _underline(message, "-").magenta.bold.inverse);
     },
     /**
      * Print message as a stylized diagnostic sub-sub-section header.
      * @param message {String} Assumes message is a string.
      */
     "h3": function(message) {
-        console.log("\n" + this._callerInfo() + this._getIndent() + message.toUpperCase().magenta.bold);
-        console.log(this._getIndent() + _underline(message).magenta.bold);
+        console.log("\n" + this._callerInfo() + this._getIndent() + "### ".magenta.bold + message.magenta.bold);
     },
     /**
      * Print message as a stylized diagnostic sub-sub-sub-section header.
      * @param message {String} Assumes message is a string.
      */
     "h4": function(message) {
-        console.log("\n" + this._callerInfo() + this._getIndent() + _toTitleCase(message).magenta.bold);
-        console.log(this._getIndent() + _underline(message).magenta.bold);
+        console.log("\n" + this._callerInfo() + this._getIndent() + "#### ".magenta.bold + message.magenta.bold);
     },
     /**
      * Print message as a stylized diagnostic sub-sub-sub-sub-section header.
      * @param message {String} Assumes message is a string.
      */
     "h5": function(message) {
-        console.log("\n" + this._callerInfo() + this._getIndent() + _toTitleCase(message).magenta.bold);
+        console.log("\n" + this._callerInfo() + this._getIndent() + "##### ".magenta.bold + message.magenta);
     },
     /**
      * Print message as a stylized diagnostic sub-sub-sub-sub-sub-section 
@@ -223,14 +168,14 @@ var _loggerPrototype = {
      * @param message {String} Assumes message is a string.
      */
     "h6": function(message) {
-        console.log("\n" + this._callerInfo() + this._getIndent() + message.toLowerCase().magenta.bold);
+        console.log("\n" + this._callerInfo() + this._getIndent() + "###### ".magenta.bold + message.toLowerCase().magenta);
     },    
     /**
      * Indent message one level in from the current indentation level.
      * @param message {String} Assumes message is a string.
      */
     "li": function(message) {
-        console.log(this._callerInfo() + this._getIndent() + this._singleIndent + message.green);
+        console.log(this._callerInfo() + this._getIndent() + "* " + message.green);
     },
     /**
      * Print a normal message to stdout, shorthand for log.
@@ -243,7 +188,7 @@ var _loggerPrototype = {
      * Prints out an 80 character horizontal rule.
      */
     "hr": function() {
-        console.log(this._getIndent() + _hr().green);
+        console.log(this._callerInfo() + this._getIndent() + _hr().green);
     },
     /**
      * Print a regular output message.
