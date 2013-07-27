@@ -14,7 +14,7 @@
     },
     "main": "llogger.js",
     "engines": {
-        "node": "node >= 0.4.x"
+        "node": ">=0.6.x"
     },
     "dependencies": {
         "colors": ">=0.6.x"
