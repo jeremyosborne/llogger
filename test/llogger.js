@@ -68,7 +68,6 @@ exports["blackbox sanity tests"] = function (test) {
     l.h6("This is an h6 (sub-sub-sub-sub-sub-heading) log message.");
     l.li("This is an li log message.");
     l.hr();
-    l.p("This is a p (paragraph a.k.a normal content) log message.");
     l.log("This is a normal log message.");
     l.warn("This is a warn message.");
     l.error("This is an error message.");
@@ -95,7 +94,6 @@ exports["blackbox indentation tests"] = function (test) {
     l.h6("This is an h6.");
     l.li("This is an li.");
     l.hr();
-    l.p("This is a p.");
     l.log("This is a normal log message (should not be indented).");
     l.warn("This is a warn message (should not be indented).");
     l.error("This is an error message (should not be indented).");
@@ -124,7 +122,6 @@ exports["blackbox fileinfo tests"] = function (test) {
     l.h6("This is an h6.");
     l.li("This is an li.");
     l.hr();
-    l.p("This is a p.");
     l.log("This is a normal log message.");
     l.warn("This is a warn message.");
     l.error("This is an error message.");

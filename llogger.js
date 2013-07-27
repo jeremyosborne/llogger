@@ -130,37 +130,37 @@ var _loggerPrototype = {
      * @param message {String} Assumes message is a string.
      */
     "h1": function(message) {
-        console.log("\n" + this._callerInfo() + this._getIndent() + message.toUpperCase().magenta.bold.inverse);
-        console.log(this._callerInfo() + this._getIndent() + _underline(message, "=").magenta.bold.inverse);
+        console.log(this._callerInfo() + this._getIndent() + "# ".magenta.bold + message.toUpperCase().magenta.bold.inverse);
+        //console.log(this._callerInfo() + this._getIndent() + _underline(message, "=").magenta.bold.inverse);
     },
     /**
      * Print message as a stylized diagnostic sub-section header.
      * @param message {String} Assumes message is a string.
      */
     "h2": function(message) {
-        console.log("\n" + this._callerInfo() + this._getIndent() + message.magenta.bold.inverse);
-        console.log(this._callerInfo() + this._getIndent() + _underline(message, "-").magenta.bold.inverse);
+        console.log(this._callerInfo() + this._getIndent() + "## ".magenta.bold + message.magenta.bold.inverse);
+        //console.log(this._callerInfo() + this._getIndent() + _underline(message, "-").magenta.bold.inverse);
     },
     /**
      * Print message as a stylized diagnostic sub-sub-section header.
      * @param message {String} Assumes message is a string.
      */
     "h3": function(message) {
-        console.log("\n" + this._callerInfo() + this._getIndent() + "### ".magenta.bold + message.magenta.bold);
+        console.log(this._callerInfo() + this._getIndent() + "### ".magenta.bold + message.magenta.bold);
     },
     /**
      * Print message as a stylized diagnostic sub-sub-sub-section header.
      * @param message {String} Assumes message is a string.
      */
     "h4": function(message) {
-        console.log("\n" + this._callerInfo() + this._getIndent() + "#### ".magenta.bold + message.magenta.bold);
+        console.log(this._callerInfo() + this._getIndent() + "#### ".magenta.bold + message.magenta.bold);
     },
     /**
      * Print message as a stylized diagnostic sub-sub-sub-sub-section header.
      * @param message {String} Assumes message is a string.
      */
     "h5": function(message) {
-        console.log("\n" + this._callerInfo() + this._getIndent() + "##### ".magenta.bold + message.magenta);
+        console.log(this._callerInfo() + this._getIndent() + "##### ".magenta.bold + message.magenta);
     },
     /**
      * Print message as a stylized diagnostic sub-sub-sub-sub-sub-section 
@@ -168,7 +168,7 @@ var _loggerPrototype = {
      * @param message {String} Assumes message is a string.
      */
     "h6": function(message) {
-        console.log("\n" + this._callerInfo() + this._getIndent() + "###### ".magenta.bold + message.toLowerCase().magenta);
+        console.log(this._callerInfo() + this._getIndent() + "###### ".magenta.bold + message.toLowerCase().magenta);
     },    
     /**
      * Indent message one level in from the current indentation level.
@@ -176,13 +176,6 @@ var _loggerPrototype = {
      */
     "li": function(message) {
         console.log(this._callerInfo() + this._getIndent() + "* " + message.green);
-    },
-    /**
-     * Print a normal message to stdout, shorthand for log.
-     * @param message {String} Assumes message is a string.
-     */
-    "p": function(message) {
-        console.log(this._callerInfo() + this._getIndent() + message.green);
     },
     /**
      * Prints out an 80 character horizontal rule.
