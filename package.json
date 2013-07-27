@@ -17,10 +17,10 @@
         "node": "node >= 0.4.x"
     },
     "dependencies": {
-        "colors": "0.6.x"
+        "colors": ">=0.6.x"
     },
     "devDependencies": {
-        "nodeunit": "0.7.x"
+        "nodeunit": ">=0.8.x"
     },
     "scripts": {
         "test": "./node_modules/nodeunit/bin/nodeunit test"
