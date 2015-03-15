@@ -19,7 +19,7 @@ Stability: 2 - Unstable
 
 
 ## Test (includes visual only tests that demonstrate each method)
-Once installed (and you're in the logger/ directory): 
+Once installed (and you're in the logger/ directory):
 
     npm test
 
@@ -32,8 +32,10 @@ Once installed (and you're in the logger/ directory):
 // (using the world's worst variable name).
 var l = require("llogger").create();
 
-// NOTE: llogger assumes all messages are text strings.
 // Standard logging methods with a bit of flavor added.
+// Pretty much the same syntax as console.log().
+
+l("normal log message"); // equivalent to l.log
 l.log("normal log message");
 l.warn("normal warn message");
 l.error("normal error message");
@@ -61,6 +63,10 @@ l.displayCallerInfo(true);
 l.log("This will now display the module name and line number from where it is called.");
 // Turn off filename and linenumber display on this logger instance.
 l.displayCallerInfo(false);
+
+// Tell a logger instance to be quiet.
+l.quiet = true;
+l("won't see this");
 
 // Turn on filename and linenumber display globally across all loggers,
 // overriding the logger instance setting.

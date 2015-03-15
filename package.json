@@ -1,34 +1,38 @@
 {
-    "name": "llogger",
-    "description": "lame logger",
-    "version": "0.4.1",
-    "keywords": ["log", "logging", "logger"],
-    "author": {
-        "name": "Jeremy Osborne",
-        "email": "jeremywosborne@gmail.com", 
-        "url": "http://jeremyosborne.com/"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/jeremyosborne/llogger.git"
-    },
-    "main": "llogger.js",
-    "engines": {
-        "node": ">=0.6.x"
-    },
-    "dependencies": {
-        "colors": ">=0.6.x"
-    },
-    "devDependencies": {
-        "nodeunit": ">=0.8.x"
-    },
-    "scripts": {
-        "test": "./node_modules/nodeunit/bin/nodeunit test"
-    },
-    "licenses": [
-        {
-            "type": "MIT",
-            "url": "http://github.com/jeremyosborne/llogger/blob/master/LICENSE-MIT.txt"
-        }
-    ]
+  "name": "llogger",
+  "description": "lame logger",
+  "version": "0.4.2",
+  "keywords": [
+    "log",
+    "logging",
+    "logger"
+  ],
+  "author": {
+    "name": "Jeremy Osborne",
+    "email": "jeremywosborne@gmail.com",
+    "url": "http://jeremyosborne.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jeremyosborne/llogger.git"
+  },
+  "main": "llogger.js",
+  "engines": {
+    "node": ">=0.6.x"
+  },
+  "dependencies": {
+    "colors": ">=0.6.x"
+  },
+  "devDependencies": {
+    "nodeunit": ">=0.8.x"
+  },
+  "scripts": {
+    "test": "./node_modules/nodeunit/bin/nodeunit test"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/jeremyosborne/llogger/blob/master/LICENSE-MIT.txt"
+    }
+  ]
 }
